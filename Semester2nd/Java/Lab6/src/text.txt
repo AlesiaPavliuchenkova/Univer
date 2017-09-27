@@ -1,0 +1,92 @@
+import
+ import
+ import
+ import
+ 
+ /**
+ 6/9/17.* Created by alesia on 
+ 
+ {class MainProcessor public
+ в   /*Відкрити будь-який текстовий файл та поміняти місцями перше і останнє слова 
+ рядку.*/   кожному 
+ 
+ args){   public static void main(String[] 
+ Scanner(System.in);       Scanner scanner = new 
+ file");       System.out.println("Please provide path to 
+ test       //  /Users/alesia/testFile.txt - file path for 
+ scanner.nextLine();       String filePath = 
+ 
+ file       // 1. read all 
+ ArrayList<String>();       ArrayList<String> lines = new 
+ filePath);       readFileToArray(lines, 
+ 
+ console       // 2. show file data in 
+ showData(lines);       
+ 
+ places       // 3. change first last word 
+ "";       String newText = 
+ {       for (String line: lines) 
+ ";           newText += switchFirstLastWord(line) + "\r\n 
+ }       
+ System.out.println();       
+ 
+ file       // 4. write updated data to 
+ filePath);       writeDataToFile(newText, 
+ 
+ file       // 5. read updated data 
+ lines.clear();       
+ filePath);       readFileToArray(lines, 
+ 
+ console       // 6. show updated file data in 
+ file:");       System.out.println("New data of 
+ showData(lines);       
+ 
+ 
+ }   
+ 
+ filePath){   private static void readFileToArray(ArrayList<String> lines, String 
+ finally       try(BufferedReader br = new BufferedReader(new FileReader(filePath))){ //don't need 
+ line;           String 
+ {           while ((line = br.readLine()) != null) 
+ lines.add(line);               
+ }           
+ {           if (line == null) 
+ exit.");               System.out.println("Provided file is empty. System 
+ System.exit(1);               
+ }           
+ {       } catch (FileNotFoundException e) 
+ again.");           System.out.println("The provided file path " + filePath + " isn't valid. Please run program once 
+ System.exit(1);           
+ {       } catch (IOException e) 
+ e.printStackTrace();           
+ }       
+ }   
+ 
+ {   private static void writeDataToFile(String text, String filePath) 
+ {       try(BufferedWriter bw = new BufferedWriter(new FileWriter(filePath))) 
+ bw.write(text);           
+ {       } catch (IOException e) 
+ e.printStackTrace();           
+ }       
+ }   
+ 
+ {   private static void showData(ArrayList<String> lines) 
+ {       for (String line: lines) 
+ System.out.println(line);           
+ }       
+ }   
+ 
+ {   private static String switchFirstLastWord(String line) 
+ ");       String[] words = line.split(" 
+ {       if (words.length > 1 /*no point to change if there is only 1 word*//*!= 0*/) 
+ words[0];           String firstWord = 
+ 1];           String lastWord = words[words.length - 
+ lastWord);           //line = line.replaceFirst(firstWord, 
+ 1,line.length());           line = lastWord + line.substring(line.indexOf(" ") + 
+ firstWord;           line = line.substring(0, line.lastIndexOf(" ") + 1) + 
+ }       
+ line;       return 
+ }   
+ 
+ }
+ 

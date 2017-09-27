@@ -1,0 +1,4 @@
+1;Kyiv,Lviv,Lutsk;100,150,200
+2;Chernihiv,Cherkasy;450,300
+3;Kyiv,Rovno,Kuznecovsk,Lubny,Lviv,Lutsk;400,380,590,600,700,850
+4;Cherkasy,Kremenchug,Poltava,Harkiv;100,200,300,400
