@@ -22,6 +22,7 @@ public class MyStack {
         return true;
     }
 
+
     public String pop () throws Exception{
         if(isEmpty()) {
             throw new Exception("Stack is empty.");
@@ -32,6 +33,7 @@ public class MyStack {
         top--;
         return removedElement;
     }
+
 
     private boolean isFull () {
         return elements.length == count;
