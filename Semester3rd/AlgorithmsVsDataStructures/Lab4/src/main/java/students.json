@@ -1,0 +1,72 @@
+[
+  {
+    "firstName": "Alesia",
+    "lessonCount": 30,
+    "lessonMissedCount": 5
+  },
+  {
+    "firstName": "Nika",
+    "lessonCount": 42,
+    "lessonMissedCount": 9
+  },
+  {
+    "firstName": "Vasiliy",
+    "lessonCount": 25,
+    "lessonMissedCount": 5
+  },
+  {
+    "firstName": "George",
+    "lessonCount": 50,
+    "lessonMissedCount": 8
+  },
+  {
+    "firstName": "Lilu",
+    "lessonCount": 32,
+    "lessonMissedCount": 7
+  },
+  {
+    "firstName": "Abra",
+    "lessonCount": 29,
+    "lessonMissedCount": 1
+  },
+  {
+    "firstName": "Andrew",
+    "lessonCount": 65,
+    "lessonMissedCount": 14
+  },
+  {
+    "firstName": "Konstantin",
+    "lessonCount": 73,
+    "lessonMissedCount": 5
+  },
+  {
+    "firstName": "Natali",
+    "lessonCount": 46,
+    "lessonMissedCount": 10
+  },
+  {
+    "firstName": "Anna",
+    "lessonCount": 84,
+    "lessonMissedCount": 23
+  },
+  {
+    "firstName": "Serofim",
+    "lessonCount": 57,
+    "lessonMissedCount": 8
+  },
+  {
+    "firstName": "Venera",
+    "lessonCount": 38,
+    "lessonMissedCount": 5
+  },
+  {
+    "firstName": "Pavel",
+    "lessonCount": 70,
+    "lessonMissedCount": 9
+  },
+  {
+    "firstName": "Oleg",
+    "lessonCount": 64,
+    "lessonMissedCount": 7
+  }
+]
