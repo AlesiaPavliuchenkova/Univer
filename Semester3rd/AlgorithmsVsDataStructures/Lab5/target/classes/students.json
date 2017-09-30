@@ -1,0 +1,157 @@
+[
+  {
+    "firstName": "Alesia",
+    "lastName": "Pavliuchenkova",
+    "course": 2,
+    "gender": "female",
+    "fromDormitory": true
+  },
+  {
+    "firstName": "Vasya",
+    "lastName": "Pupkin",
+    "course": 6,
+    "gender": "male",
+    "fromDormitory": true
+  },
+  {
+    "firstName": "Mak",
+    "lastName": "Miller",
+    "course": 2,
+    "gender": "male",
+    "fromDormitory": false
+  },
+  {
+    "firstName": "Edgar",
+    "lastName": "Poe",
+    "course": 1,
+    "gender": "male",
+    "fromDormitory": true
+  },
+  {
+    "firstName": "Bradley",
+    "lastName": "Cooper",
+    "course": 6,
+    "gender": "male",
+    "fromDormitory": false
+  },
+  {
+    "firstName": "Suki",
+    "lastName": "Waterhouse",
+    "course": 2,
+    "gender": "female",
+    "fromDormitory": false
+  },
+  {
+    "firstName": "Kris",
+    "lastName": "Bryant",
+    "course": 4,
+    "gender": "male",
+    "fromDormitory": true
+  },
+  {
+    "firstName": "Ariel",
+    "lastName": "Winter",
+    "course": 4,
+    "gender": "female",
+    "fromDormitory": false
+  },
+  {
+    "firstName": "Milana",
+    "lastName": "Vayntrab",
+    "course": 5,
+    "gender": "female",
+    "fromDormitory": true
+  },
+  {
+    "firstName": "Aidan",
+    "lastName": "Queen",
+    "course": 1,
+    "gender": "male",
+    "fromDormitory": true
+  },
+  {
+    "firstName": "Valencia",
+    "lastName": "Vallo",
+    "course": 2,
+    "gender": "female",
+    "fromDormitory": false
+  },
+  {
+    "firstName": "Juju",
+    "lastName": "Vano",
+    "course": 2,
+    "gender": "female",
+    "fromDormitory": true
+  },
+  {
+    "firstName": "Leonardo",
+    "lastName": "DiCaprio",
+    "course": 5,
+    "gender": "male",
+    "fromDormitory": true
+  },
+  {
+    "firstName": "Demi",
+    "lastName": "Moore",
+    "course": 2,
+    "gender": "female",
+    "fromDormitory": false
+  },
+  {
+    "firstName": "Jacob",
+    "lastName": "Widesides",
+    "course": 3,
+    "gender": "male",
+    "fromDormitory": false
+  },
+  {
+    "firstName": "Stanley",
+    "lastName": "Tucci",
+    "course": 6,
+    "gender": "male",
+    "fromDormitory": true
+  },
+  {
+    "firstName": "Adam",
+    "lastName": "Beach",
+    "course": 2,
+    "gender": "male",
+    "fromDormitory": false
+  },
+  {
+    "firstName": "Dominic",
+    "lastName": "Sandoval",
+    "course": 3,
+    "gender": "male",
+    "fromDormitory": true
+  },
+  {
+    "firstName": "Pier",
+    "lastName": "Ludovick",
+    "course": 5,
+    "gender": "male",
+    "fromDormitory": true
+  },
+  {
+    "firstName": "Sandra",
+    "lastName": "Kassandra",
+    "course": 1,
+    "gender": "female",
+    "fromDormitory": false
+  },
+  {
+    "firstName": "Sam",
+    "lastName": "Doe",
+    "course": 6,
+    "gender": "male",
+    "fromDormitory": true
+  },
+  {
+    "firstName": "LaLa",
+    "lastName": "Luly",
+    "course": 3,
+    "gender": "female",
+    "fromDormitory": true
+  }
+
+]
