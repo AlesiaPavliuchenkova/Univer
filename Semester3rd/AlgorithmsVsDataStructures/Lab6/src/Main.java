@@ -1,3 +1,5 @@
+import java.sql.Array;
+
 /**
  * Created by alesia on 9/30/17.
  * 10 - Мета – дослідження методів аналізу ефективності алгоритмів
@@ -14,19 +16,19 @@ public class Main {
         // розміром N, N^2, N^3, де N = 100;
 
         // 1. розміром N
-        int N = 100;
-        int[] array = generateArray(N);
+        int N1 = 100;
+        int[] array = generateArray(N1);
+        //for (int i: array){ System.out.print(i + "  "); };
         calculateSortMethodsTime(array);
 
         // 2. розміром N^2
-        N = (int)Math.pow(N,2);
-        array = generateArray(N);
+        int N2 = (int)Math.pow(N1,2);
+        array = generateArray(N2);
         calculateSortMethodsTime(array);
 
         // 3. розміром N^3
-        N = (int) Math.pow(N,3)/6;
-        //System.out.println(N);
-        array = generateArray(N);
+        int N3 = (int) Math.pow(N1,3);
+        array = generateArray(N3);
         calculateSortMethodsTime(array);
 
         // побудувати графіки залежностей часу виконання від кіль-
@@ -36,8 +38,10 @@ public class Main {
     public static void calculateSortMethodsTime(int[] array) {
         System.out.println("N = " + array.length);
 
+
         long startNanoTime = System.nanoTime(); //nanoTime() is not a clock but CPU cycle counter.
-        sortShell(array);
+        int[] arrayShell = array.clone();
+        sortShell(arrayShell);
         long executionTime = System.nanoTime() - startNanoTime;
         System.out.println("Shell sort:     " + executionTime);
 
@@ -53,17 +57,16 @@ public class Main {
         int[] array = new int[size];
 
         for (int i = 0; i < size; i++) {
-            array[i] = (int) Math.random()*100;
+            array[i] = (int) (Math.random()*100);
         }
         return array;
     }
 
     // 1.1. Сортування – Шелла (за Кнутом)
-    //(3^k -1) / 2
     public static void sortShell (int[] array) {
         int length = array.length;
         int h = 1;
-        //// каждое последующее значение на единицу больше, чем утроенное предыдущее значение
+        // каждое последующее значение на единицу больше, чем утроенное предыдущее значение
         while( h < length / 3) {
             h = 3 * h + 1;
         }
@@ -76,13 +79,16 @@ public class Main {
 
     private static void hSort(int[] array, int h) {
         int length = array.length;
-
+        //System.out.println(h);
         for(int i = h; i < length; i++) {
             for(int j = i; j >= h; j = j - h) {
+                /*if (array.length == 100 ) {
+                    System.out.print(j+"  ");
+                }*/
                 if (array[j] < array[j - h]) {
                     int temp = array[j];
                     array[j] = array[j - h];
-                    array[j - h] = array[j];
+                    array[j - h] = temp;
                 } else { break; }
             }
         }
