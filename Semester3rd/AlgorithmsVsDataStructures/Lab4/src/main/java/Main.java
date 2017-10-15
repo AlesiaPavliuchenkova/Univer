@@ -31,13 +31,12 @@ public class Main {
     }
 
     /* Oписати метод, який сортує одновимірний масив студентів
-    за заданим алгоритм у заданому порядку сортування згідно з варіа-
+    за заданим алгоритмом у заданому порядку сортування згідно з варіа-
     нтом завдання - Вставкою - За зростанням співвідношення пропущених і
     занять за планом */
 
     public static void sortStudentsInsertion(Student[] students) {
         for (int i = 1; i < students.length; i++) {
-
             Student key = students[i];
             int freeIndex = i;
 
@@ -48,10 +47,6 @@ public class Main {
                 freeIndex--;
             }
             students[freeIndex] = key;
-
-            //System.out.println();
-            //printStudents(students);
-            //System.out.println();
          }
     }
 
@@ -64,7 +59,7 @@ public class Main {
     public static Student[] generateStudents(){
         Student[] students;
         ArrayList<Student> studentsList = new ArrayList<Student>();
-        String filePath = "/Users/alesia/IdeaProjects/Univer/Semester3rd/AlgorithmsVsDataStructures/Lab4/src/main/java/students.json";
+        String filePath = "src/students.json";
 
         try {
             JSONParser parser = new JSONParser();

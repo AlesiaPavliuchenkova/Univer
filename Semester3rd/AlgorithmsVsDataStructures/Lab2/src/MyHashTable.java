@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Created by alesia on 9/26/17.
  */
@@ -17,11 +19,13 @@ public class MyHashTable {
 
     public boolean hashInsert (Triangle triangle) throws Exception {
         if(triangles.length == size) throw new Exception("Hash table \"MyHashTable\" is full.");
+        if(isTriangleExists(triangle)) return false;
 
         int index = hashFunctionMultiple(triangle);
-
         int counter = 0;
-        while (!indexIsFree(index) || counter == triangles.length - 1) {
+        //Linear probing
+        while (!indexIsFree(index)
+                || counter == triangles.length - 1) {
             if(index == triangles.length - 1) {
                 index = 0;
             } else {
@@ -32,6 +36,13 @@ public class MyHashTable {
         triangles[index] = triangle;
         size++;
         return true;
+    }
+
+    public boolean isTriangleExists(Triangle triangle) {
+        for(int i = 0; i < triangles.length; i++) {
+            if(triangle.equals(triangles[i])) return true;
+        }
+        return false;
     }
 
     public int hashSearch (Triangle triangle) {
@@ -49,12 +60,18 @@ public class MyHashTable {
         return index;
     }
 
-    public void hashDelete (int i) {
-        if(triangles[i] != null) {
-            triangles[i] = null;
-            isDeleted[i] = true;
-            size--;
+    public boolean hashDelete(int perimeterRestriction) {
+        for(int i = 0; i < triangles.length; i++){
+            if(triangles[i] == null) continue;
+            if(triangles[i].calculatePerimeter() > perimeterRestriction) {
+                triangles[i] = null;
+                isDeleted[i] = true;
+                size--;
+                return true;
+            }
         }
+
+        return false;
     }
 
     private boolean indexIsFree (int i) {
@@ -62,9 +79,10 @@ public class MyHashTable {
     }
 
     private int hashFunctionMultiple (Triangle triangle) {
-        int k = (int) triangle.calculateArea();
+        //An example of a good choice for A is (√5-1)/2
+        //Rational numbers should not be chosen for A
         final double A = (Math.sqrt(5) - 1) / 2;
-        double index = triangles.length * ((k*A)%1);
+        double index = triangles.length * ((triangle.hashCode()*A)%1);
 
         return  (int) index;
     }

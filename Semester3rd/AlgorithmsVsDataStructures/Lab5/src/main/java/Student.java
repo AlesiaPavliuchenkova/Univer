@@ -50,9 +50,7 @@ public class Student {
         this.isFromDormitory = fromDormitory;
     }
 
-    public String getGender() {
-        return gender;
-    }
+    public String getGender() { return gender; }
 
     public void setGender(String gender) {
         this.gender = gender;

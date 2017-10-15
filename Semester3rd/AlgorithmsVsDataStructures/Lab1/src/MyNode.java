@@ -33,11 +33,8 @@ public class MyNode {
         this.next = next;
     }
 
-    @Override
-    public String toString() {
-        return "MyNode{" +
-                "element=" + element +
-                "\r\n, next=" + next +
-                '}';
+        @Override
+        public String toString() {
+            return element + "";
     }
 }

@@ -14,25 +14,20 @@ public class Main {
 
         // Fill in Single Linked List with values
         for (int i = 0; i < N; i++) {
-            list.add(i + N / (i + 1) * N * i * (i%2 == 0 ? (-1) : 1));
+            int val = i + N / (i + 1) * N * i * (i%2 == 0 ? (-1) : 1);
+            //System.out.print(val + "  ");
+            //list.addLast(val);
+            list.addFirst(val);
         }
-        System.out.println("Single Linked List after its creation: \r\n");
+        System.out.println("\r\nSingle Linked List after its creation: \r\n");
         System.out.println(list.toString() + "\r\n");
 
         //Remove negative values and save them to Stack Data Structure
-        MyNode node = list.getHead();
-        int counter = 0;
+        Integer removedVal;
         try {
-            //stack.pop(); check pop empty stack
-            while (node != null) {
-                if (node.getElement() < 0) {
-                    int removedVal = list.remove(counter);
-                    //System.out.println("removed = " + removedVal + "; 8 = " + convertTo8(removedVal*(-1)));
-                    stack.push(convertTo8(removedVal*(-1)));
-                    counter--;
-                }
-                counter++;
-                node = node.getNext();
+            while ((removedVal = list.remove()) != null) {
+                System.out.println("removed value inverted = " + convertTo8(removedVal*(-1)));
+                stack.push(convertTo8(removedVal*(-1)));  //Integer.toOctalString(removedVal*(-1));
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -44,23 +39,6 @@ public class Main {
         System.out.println("Stack after its creation:");
         System.out.println(stack);
 
-        /*try {
-            stack.pop();
-            System.out.println(stack);
-            stack.pop();
-            System.out.println(stack);
-            stack.pop();
-            System.out.println(stack);
-            stack.pop();
-            System.out.println(stack);
-            stack.pop();
-            System.out.println(stack);
-            stack.pop();
-            System.out.println(stack);
-            stack.pop();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }*/
     }
 
     private static String convertTo8(int val) {

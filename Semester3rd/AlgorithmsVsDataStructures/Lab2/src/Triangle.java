@@ -14,7 +14,7 @@ public class Triangle {
     private double y3;
 
     public Triangle (double x1, double y1, double x2, double y2, double x3, double y3) throws TriangleException {
-        if (Math.abs((x2 - x1) * (y3 - y1) - (y2 - y1) * (x3 - x1)) == 0) throw new TriangleException();
+        if (Math.abs((x2 - x1) * (y3 - y1) - (y2 - y1) * (x3 - x1)) == 0) throw new TriangleException("Not Triangle");
         this.x1 = x1;
         this.y1 = y1;
         this.x2 = x2;
@@ -39,6 +39,27 @@ public class Triangle {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Triangle triangle = (Triangle) o;
+
+        if (Double.compare(triangle.x1, x1) != 0) return false;
+        if (Double.compare(triangle.y1, y1) != 0) return false;
+        if (Double.compare(triangle.x2, x2) != 0) return false;
+        if (Double.compare(triangle.y2, y2) != 0) return false;
+        if (Double.compare(triangle.x3, x3) != 0) return false;
+        return Double.compare(triangle.y3, y3) == 0;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return (int)calculateArea();
+    }
+
+    @Override
     public String toString() {
         String result = String.format("Area = %1$-10f Perimeter = %2$-10f " +
                 "Triangle { x1 = %3$-10f y1 = %4$-10f x2 = %5$-10f y2 = %6$-10f" +
@@ -49,4 +70,5 @@ public class Triangle {
 
         return result;
     }
+
 }

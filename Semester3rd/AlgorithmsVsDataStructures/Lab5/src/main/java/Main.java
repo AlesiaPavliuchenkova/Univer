@@ -2,11 +2,9 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -33,16 +31,17 @@ public class Main {
         int course = 6;
         String gender = "male";
         boolean isFromDormitory = true;
+        Student studentDelete;
 
-        while (true) {
-             Student studentDelete = linearSearchStudent(students, course, gender, isFromDormitory);
-
-            if(studentDelete == null) { break; }
+        while ((studentDelete = linearSearchStudent(students,
+                                                    course,
+                                                    gender,
+                                                    isFromDormitory)) != null) {
             int indexDelete = Arrays.asList(students).indexOf(studentDelete);
             students[indexDelete] = null;
         }
 
-        //4. вивести вміст одновимірного масиву в разі його зміни
+        //4. вивести вміст одновимірного масиву
         System.out.println("\r\nStudents list after changes (Видалити студентів-чоловіків 6-го курсу" +
                 ", що проживають у гуртожитку):\r\n");
         printStudents(students);
@@ -79,7 +78,7 @@ public class Main {
     public static Student[] generateStudents(){
         Student[] students;
         ArrayList<Student> studentArrayList = new ArrayList<Student>();
-        String filePath = "/Users/alesia/IdeaProjects/Univer/Semester3rd/AlgorithmsVsDataStructures/Lab5/src/main/resources/students.json";
+        String filePath = "src/main/resources/students.json";
 
         try {
             JSONParser parser = new JSONParser();

@@ -5,7 +5,6 @@ import java.util.Arrays;
  */
 public class MyStack {
     private String [] elements;
-    private int count;
     private int top = -1;
 
     MyStack (int count) {
@@ -16,9 +15,8 @@ public class MyStack {
         if(isFull()) {
             throw new Exception("Stack is full.");
         }
-        elements[count] = el;
         top++;
-        count++;
+        elements[top] = el;
         return true;
     }
 
@@ -28,27 +26,30 @@ public class MyStack {
             throw new Exception("Stack is empty.");
         }
         String removedElement = elements[top];
-        elements[count - 1] = null;
-        count--;
+        elements[top] = null;
         top--;
         return removedElement;
     }
 
 
     private boolean isFull () {
-        return elements.length == count;
+        return elements.length == top - 1;
     }
 
     private boolean isEmpty () {
-        return count == 0;
+        return top == -1;
     }
 
     @Override
     public String toString() {
-        return "MyStack{" +
-                "elements=" + Arrays.toString(elements) +
-                ", count=" + count +
-                ", top=" + top +
-                '}';
+        if (isEmpty()) return "Stack is empty";
+        String out = "";
+        int index = top;
+
+        while (index >= 0) {
+            out += elements[index] + "    ";
+            index--;
+        }
+        return out;
     }
 }

@@ -29,8 +29,15 @@ public class Main {
 
         //fill in MyHashTable with Triangles
         MyHashTable myHashTable = new MyHashTable(N);
-        for (int i = 0; i < N; i++) {
+        int checker = 0; //is used for generate not triangle once
+        for (int i = 0; i < N - 2; i++) {
             try {
+                if(checker == 0) {                  //check that not triangle throws error
+                    checker++;
+                    double p = Math.random() * 10;
+                    Triangle notTriangle = new Triangle(p,p,p,p,p,p);
+                }
+                // generate triangle values
                 double x1 = Math.random() * 10;
                 double y1 = Math.random() * 10;
                 double x2 = Math.random() * 10;
@@ -38,16 +45,22 @@ public class Main {
                 double x3 = Math.random() * 10;
                 double y3 = Math.random() * 10;
                 Triangle triangle = new Triangle(x1, y1, x2, y2, x3, y3);
-                try {
-                    if (!myHashTable.hashInsert(triangle)) i--;
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
+
+                if (!myHashTable.hashInsert(triangle)) i--;
+                if(checker == 1) {
+                    if (!myHashTable.hashInsert(triangle)) i--; //check triangle already exists
+                    System.out.println("Triangle " + triangle + " already exists.");
+                    checker++;
                 }
+
             } catch (TriangleException ex) {
                 System.out.println("Not a triangle. Continue execution...");
                 i--;
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
             }
         }
+
         System.out.println("Hash Table Data:\r\n");
         System.out.printf(myHashTable.toString() + "\r\n");
 
@@ -66,33 +79,10 @@ public class Main {
             }
         }
 
-        Triangle[] triangles = myHashTable.getTriangles();
-        for(int i = 0; i < N; i++) {
-            if (triangles[i].calculatePerimeter() > perimeterRestriction) {
-                int index = myHashTable.hashSearch(triangles[i]);
-                myHashTable.hashDelete(index);
-            }
-        }
+        while (myHashTable.hashDelete(perimeterRestriction)) {  } //delete while can be deleted
 
         System.out.println("Hash Table Data after deletion Triangles with perimeter > " + perimeterRestriction + "\r\n");
         System.out.printf(myHashTable.toString() + "\r\n");
 
-        /* CHECK INSERT ONCE AGAIN TO MY HASH TABLE
-        for (int i = 0; i < N/2; i++) {
-            double x1 = Math.random() * 10;
-            double y1 = Math.random() * 10;
-            double x2 = Math.random() * 10;
-            double y2 = Math.random() * 10;
-            double x3 = Math.random() * 10;
-            double y3 = Math.random() * 10;
-            try {
-                Triangle triangle = new Triangle(x1, y1, x2, y2, x3, y3);
-                myHashTable.hashInsert(triangle);
-            } catch (Exception e) {
-                e.getMessage();
-            }
-        }
-
-        System.out.printf(myHashTable.toString() + "\r\n");*/
     }
 }
